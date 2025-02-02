@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.13'
+}
+
+javafx {
+    version = "23.0.2"
+    modules = ['javafx.controls', 'javafx.graphics', 'javafx.fxml']
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    //JSON
+    implementation("org.json:json:20210307")
+    //JavaFX
+    implementation "org.openjfx:javafx-controls:23.0.2"
+    implementation "org.openjfx:javafx-graphics:23.0.2"
+    implementation "org.openjfx:javafx-fxml:23.0.2"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClass.set("org.example.application.Main")
+    mainModule = "WeatherWhisper"
+}
